@@ -5,10 +5,19 @@ import Footer from "../layout/Footer";
 import Title from "../layout/Title";
 import Contact from "../layout/Contact";
 import YoutubeCont from "../includes/YoutubeCont";
+import YoutubeSearch from "../includes/YoutubeSearch";
 import { useState, useEffect } from "react";
 
 function Youtube() {
   const [youtubes, setYoutubes] = useState([]);
+
+  const search = (query) => {
+    fetch(
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${query}&key=AIzaSyAUzNiVe1LK-tmT3AMOOwa8cENfPCDROK8&maxResults=28&type=video`
+    )
+      .then((response) => response.json())
+      .then((result) => setYoutubes(result.items));
+  };
 
   useEffect(() => {
     fetch(
@@ -24,6 +33,7 @@ function Youtube() {
       <Header />
       <Contents>
         <Title title={["Youtube", "Api"]} />
+        <YoutubeSearch onSearch={search} />
         <YoutubeCont youtubes={youtubes} />
         <Contact />
       </Contents>

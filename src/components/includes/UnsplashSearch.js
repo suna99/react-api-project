@@ -20,7 +20,7 @@ function UnsplashSearch({ onSearch }) {
   };
 
   return (
-    <div className="movie__search">
+    <div className="unsplash__search">
       <div className="container">
         <h2>검색하기</h2>
         <input
