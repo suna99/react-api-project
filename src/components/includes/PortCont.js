@@ -1,16 +1,16 @@
 import React from "react";
 
-function PortItem({ link, title, image, category }) {
+function PortItem(props) {
   return (
     <article className="port__item">
       <figure className="img">
-        <a href={link}>
-          <img src={image} alt={title} />
+        <a href={props.link}>
+          <img src={props.image} alt={props.title} />
         </a>
       </figure>
       <div className="text">
-        <h3>{title}</h3>
-        <p>{category}</p>
+        <h3>{props.title}</h3>
+        <p>{props.category}</p>
       </div>
     </article>
   );
