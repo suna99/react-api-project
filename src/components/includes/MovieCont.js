@@ -1,34 +1,32 @@
 import React from "react";
 
-function MovieItem({ title, image, overview }) {
+function MovieItem(props) {
   return (
-    <div className="movie__item">
-      <img src={"https://image.tmdb.org/t/p/w500/" + image} alt={title} />
-      <div className="text">
-        <h3>{title}</h3>
-        <p>{overview}</p>
-      </div>
-    </div>
+    <li>
+      <a href={`https://www.themoviedb.org/movie/${props.movie.id}`}>
+        <img
+          src={`https://image.tmdb.org/t/p/w342${props.movie.poster_path}`}
+          alt={props.movie.title}
+        />
+        <span>{props.movie.title}</span>
+      </a>
+    </li>
   );
 }
 
-function MovieCont({ movies }) {
-  console.log(movies);
+function MovieCont(props) {
   return (
-    <section className="movie__cont">
+    <div className="movie__cont">
       <div className="container">
-        <div className="movie__inner">
-          {movies.map((movie) => (
-            <MovieItem
-              key={movie.id}
-              title={movie.title}
-              image={movie.poster_path}
-              overview={movie.overview}
-            />
-          ))}
+        <div className="movie__list">
+          <ul>
+            {props.movies.map((movies, index) => (
+              <MovieItem movie={movies} key={index} />
+            ))}
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 

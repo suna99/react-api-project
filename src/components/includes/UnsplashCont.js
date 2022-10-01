@@ -1,12 +1,11 @@
 import React from "react";
 
-function UnsplashItem({ title, image, desc }) {
+function UnsplashItem(props) {
   return (
     <div className="unspl__item">
-      <img src={image} alt={title} />
+      <img src={props.image} alt={props.title} />
       <div className="text">
-        <h3>{title}</h3>
-        <p>{desc}</p>
+        <h3>{props.title}</h3>
       </div>
     </div>
   );
