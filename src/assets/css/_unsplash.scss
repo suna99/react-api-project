@@ -1,41 +1,31 @@
 // movie__cont
 .unspl__cont {
   background-color: var(--black);
-}
-.unspl__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-.unspl__item {
-  width: 30%;
-  margin: 1%;
 
-  img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    object-position: center;
-  }
+  .unspl__img__wrap {
+    line-height: 0;
+    -webkit-column-count: 4; /* split it into 4 columns */
+    -webkit-column-gap: 8px; /* give it a 8px gap between columns */
+    -moz-column-count: 4;
+    -moz-column-gap: 8px;
+    column-count: 4;
+    column-gap: 8px;
 
-  .text {
-    padding: 1.4rem;
-    background-color: #151517;
-
-    h3 {
-      color: var(--white);
-      font-family: var(--subKor_font);
-      padding-top: 10px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
+    .unspl__item {
+      img {
+        width: 100% !important;
+        height: auto !important;
+        margin-bottom: 8px; /* to match column gap */
+      }
     }
   }
 }
 
+//애니메이션
+// .port__inner {
+//     opacity: 0;
+//     transform: translateY(50px);
+// }
 .unsplash__search {
   background: var(--black);
 

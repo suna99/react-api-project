@@ -4,9 +4,6 @@ function UnsplashItem(props) {
   return (
     <div className="unspl__item">
       <img src={props.image} alt={props.title} />
-      <div className="text">
-        <h3>{props.title}</h3>
-      </div>
     </div>
   );
 }
@@ -16,14 +13,16 @@ function UnsplashCont({ unspls }) {
     <section className="unspl__cont">
       <div className="container">
         <div className="unspl__inner">
-          {unspls.map((unspl) => (
-            <UnsplashItem
-              key={unspl.id}
-              title={unspl.description}
-              image={unspl.urls.regular}
-              desc={unspl.alt_description}
-            />
-          ))}
+          <div className="unspl__img__wrap">
+            {unspls.map((unspl) => (
+              <UnsplashItem
+                key={unspl.id}
+                title={unspl.description}
+                image={unspl.urls.regular}
+                desc={unspl.alt_description}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
